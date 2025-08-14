@@ -2,6 +2,7 @@ import express, { json } from 'express';
 import 'dotenv/config';
 import userRouter from './routes/user.routes.js';
 import todoRoutes from './routes/todo.routes.js';
+import ConnectDB from './config/mongodb.js';
 
 const port = process.env.PORT || 3000;
 
@@ -17,4 +18,5 @@ app.get('/',(req,res)=>{
 
 app.listen(port,()=>{
     console.log(`Server running on port ${port}`)
+    ConnectDB();
 })
